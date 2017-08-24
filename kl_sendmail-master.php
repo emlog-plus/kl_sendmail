@@ -105,7 +105,7 @@ function kl_sendmail_get_comment_mail()
 		{
 			if($pid > 0)
 			{
-				$DB = mysql::getInstance();
+				$DB = Database::getInstance();
 				$Comment_Model = new Comment_Model();
 				$pinfo = $Comment_Model->getOneComment($pid);
 				if(!empty($pinfo['mail']))
@@ -153,7 +153,7 @@ function kl_sendmail_get_twitter_mail($r, $name, $date, $tid)
 	include(EMLOG_ROOT.'/content/plugins/kl_sendmail-master/kl_sendmail-master_config.php');
 	if(KL_IS_TWITTER_MAIL == 'Y')
 	{
-		$DB = Mysql::getInstance();
+		$DB = Database::getInstance();
 		$blogname = Option::get('blogname');
 		$sql = "select a.content, b.username from ".DB_PREFIX."twitter a left join ".DB_PREFIX."user b on b.uid=a.author where a.id={$tid}";
 		$res = $DB->query($sql);
@@ -208,7 +208,7 @@ function kl_sendmail_put_reply_mail($commentId, $reply)
 	include(EMLOG_ROOT.'/content/plugins/kl_sendmail-master/kl_sendmail-master_config.php');
 	if(KL_IS_REPLY_MAIL == 'Y')
 	{
-		$DB = mysql::getInstance();
+		$DB = Database::getInstance();
 		$blogname = Option::get('blogname');
 		$Comment_Model = new Comment_Model();
 		$commentArray = $Comment_Model->getOneComment($commentId);
