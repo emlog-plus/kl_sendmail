@@ -5,7 +5,7 @@
  */
 require_once('../../../init.php');
 !(ISLOGIN === true && $value['author'] == UID || ROLE == 'admin') && exit('access deined!');
-include_once('kl_sendmail_config.php');
+include_once('kl_sendmail-master_config.php');
 require_once(EMLOG_ROOT.'/content/plugins/kl_sendmail-master/class/class.smtp.php');
 require_once(EMLOG_ROOT.'/content/plugins/kl_sendmail-master/class/class.phpmailer.php');
 $blogname = Option::get('blogname');
